@@ -16,7 +16,6 @@ mongoose.connect('mongodb://localhost:27017/MyProjectDB', {
   useUnifiedTopology: true,
 });
 
-// ✅ Serve static files from frontend folder
 app.use(express.static(path.join(__dirname, '../frontend')));
 
 // ✅ Default route to serve login.html (or index.html)
