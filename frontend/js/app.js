@@ -1,9 +1,20 @@
 var app = angular.module('eventApp', []);
 
 // Landing
-app.controller('MainController', function($scope) {
-  // Home page logic if needed
-});
+
+app.controller('MainController', ['$scope', function($scope) {
+    $scope.loginUser = function(event) {
+      event.preventDefault();
+      // Add your login logic here
+      window.location.href = "login.html";
+    };
+  
+    $scope.registerUser = function(event) {
+      event.preventDefault();
+      // Add your register logic here
+      window.location.href = "register.html";
+    };
+  }]);
 
 // Register/Login
 app.controller('AuthController', function($scope, $http) {

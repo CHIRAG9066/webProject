@@ -9,6 +9,7 @@ const eventRoutes = require('./routes/events');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static('frontend'));
 
 
 mongoose.connect('mongodb://localhost:27017/MyProjectDB', {
