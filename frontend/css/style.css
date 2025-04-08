@@ -59,10 +59,17 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: var(--section-bg);
+  background-color: rgba(28, 28, 28, 0.8);
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
   padding: 1rem 0;
+  flex-direction: row;
+  justify-content: center;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
 }
 
 .navbar-brand {
