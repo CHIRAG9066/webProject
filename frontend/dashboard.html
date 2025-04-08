@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="eventApp">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Event Manager</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body ng-controller="DashboardController">
+  <h2>Welcome, {{user.name}}</h2>
+  <button ng-click="logout()">Logout</button>
+
+  <h3>Your Events</h3>
+  <ul>
+    <li ng-repeat="event in events">
+      {{event.title}} - {{event.date}} 
+      <a ng-href="event-details.html#/event/{{event._id}}">View</a>
+    </li>
+  </ul>
+
+  <a href="create-event.html">Create New Event</a>
+</body>
+</html>

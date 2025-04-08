@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="eventApp">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Event Manager</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body ng-controller="AuthController">
+  <h2>Login</h2>
+  <form ng-submit="login()">
+    <label>Email:</label>
+    <input type="email" ng-model="user.email" required />
+    <label>Password:</label>
+    <input type="password" ng-model="user.password" required />
+    <button type="submit">Login</button>
+  </form>
+  <p>{{error}}</p>
+  <a href="register.html">Don't have an account? Register</a>
+</body>
+</html>

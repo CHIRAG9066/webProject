@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="eventApp">
+<head>
+  <meta charset="UTF-8" />
+  <title>Invite - Event Manager</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body ng-controller="InviteController">
+  <h2>Invite to {{event.title}}</h2>
+  <form ng-submit="sendInvite()">
+    <label>Email:</label>
+    <input type="email" ng-model="invite.email" required />
+    <button type="submit">Send Invite</button>
+  </form>
+  <p>{{message}}</p>
+</body>
+</html>
