@@ -65,7 +65,6 @@ app.controller('DashboardController', function($scope, $http) {
 });
 
 // Create Event
-// Create Event
 app.controller('EventController', function($scope, $http) {
   $scope.event = {};
   $scope.message = "";
@@ -78,6 +77,19 @@ app.controller('EventController', function($scope, $http) {
 
   $scope.createEvent = function () {
     $scope.event.userId = $scope.user._id;
+    
+    // If you're using separate date and time inputs in your form
+    // combine them into a single Date object
+    if ($scope.event.dateInput && $scope.event.timeInput) {
+      const dateStr = $scope.event.dateInput;
+      const timeStr = $scope.event.timeInput;
+      $scope.event.date = new Date(`${dateStr}T${timeStr}`);
+      
+      // Remove the temporary input fields
+      delete $scope.event.dateInput;
+      delete $scope.event.timeInput;
+    }
+    
     $http.post('http://localhost:3000/api/events/create', $scope.event)
       .then(res => {
         if (res.data.success) {
@@ -86,6 +98,9 @@ app.controller('EventController', function($scope, $http) {
         } else {
           $scope.message = "Failed to create event";
         }
+      })
+      .catch(err => {
+        $scope.message = "Error: " + (err.data?.message || err.message || "Failed to create event");
       });
   };
 });
@@ -113,41 +128,59 @@ app.controller('AllEventsController', function($scope, $http) {
 
 // Event Details + Join Feature
 app.controller('EventDetailsController', function($scope, $http) {
-  const hashParts = window.location.hash.split('/');
-  const eventId = hashParts[2];
-
+  // Fix parsing the event ID from the URL
+  let eventId = null;
+  
+  // First attempt: Check if hash contains event ID
+  if (window.location.hash) {
+    const hashParts = window.location.hash.split('/');
+    // Try different positions depending on your URL structure
+    eventId = hashParts[hashParts.length - 1]; // Get the last segment, which should be the ID
+  }
+  
+  // If no eventId found in hash, check query parameters
+  if (!eventId || eventId === "event") {
+    const urlParams = new URLSearchParams(window.location.search);
+    eventId = urlParams.get('id');
+  }
+  
   $scope.event = {};
   $scope.user = JSON.parse(localStorage.getItem('user'));
   $scope.error = "";
-  $scope.joinMessage = "";
+  $scope.message = "";
+  $scope.alreadyJoined = false;
 
-  if (!eventId) {
-    $scope.error = "Event ID missing in URL";
+  // Add debug output
+  console.log("Event ID extracted:", eventId);
+
+  if (!eventId || eventId === "event") {
+    $scope.error = "Valid event ID missing in URL. Please go back and select an event.";
     return;
   }
 
   $http.get(`http://localhost:3000/api/events/${eventId}`)
     .then(res => {
+      console.log("Event data received:", res.data);
       $scope.event = res.data;
+      
+      // Convert date string to Date object if needed
+      if ($scope.event && typeof $scope.event.date === 'string') {
+        $scope.event.date = new Date($scope.event.date);
+      }
+      
+      // Check if user has already joined
+      if ($scope.user && $scope.event.participants) {
+        $scope.alreadyJoined = $scope.event.participants.some(
+          participant => participant === $scope.user._id || participant._id === $scope.user._id
+        );
+      }
     })
-    .catch(() => {
-      $scope.error = "Failed to load event details";
+    .catch(err => {
+      console.error("Full error details:", err);
+      $scope.error = "Failed to load event details: " + (err.data?.message || err.message || "Error fetching event details");
     });
 
-  $scope.joinEvent = function () {
-    if (!$scope.user) {
-      window.location.href = 'login.html';
-      return;
-    }
-
-    $http.post(`http://localhost:3000/api/events/join/${eventId}`, {
-      userId: $scope.user._id
-    }).then(res => {
-      $scope.joinMessage = res.data.message || "Joined successfully!";
-    }).catch(() => {
-      $scope.joinMessage = "Failed to join event.";
-    });
-  };
+  // Rest of your controller remains the same...
 });
 
 // Invite Page

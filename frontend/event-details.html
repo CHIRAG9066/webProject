@@ -12,8 +12,8 @@
   <div ng-if="event">
     <h2>{{event.title}}</h2>
     <p>{{event.description}}</p>
-    <p><strong>Date:</strong> {{event.date}}</p>
-    <p><strong>Time:</strong> {{event.time}}</p>
+    <p><strong>Date:</strong> {{event.date | date:'MMM d, yyyy'}}</p>
+    <p><strong>Time:</strong> {{event.date | date:'h:mm a'}}</p>
     <p><strong>Location:</strong> {{event.location}}</p>
     <p><strong>Type:</strong> {{event.type}}</p>
 
