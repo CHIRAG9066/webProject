@@ -2,6 +2,7 @@
 <html ng-app="eventApp">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event Details - Event Manager</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
@@ -9,38 +10,78 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body ng-controller="EventDetailsController">
-  <div ng-if="event">
-    <h2>{{event.title}}</h2>
-    <p>{{event.description}}</p>
-    <p><strong>Date:</strong> {{event.date | date:'MMM d, yyyy'}}</p>
-    <p><strong>Time:</strong> {{event.date | date:'h:mm a'}}</p>
-    <p><strong>Location:</strong> {{event.location}}</p>
-    <p><strong>Type:</strong> {{event.type}}</p>
+  <header class="event-header">
+    <div class="logo">Event Manager</div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a ng-href="invite.html#/invite/{{event._id}}">Invite People</a>
+    </nav>
+  </header>
 
-    <h3>Attendees</h3>
-    <ul>
-      <li ng-repeat="attendee in event.attendees">{{attendee}}</li>
-    </ul>
+  <main class="event-main">
+    <section class="event-details-section">
+      <div ng-if="event">
+        <!-- Event Title -->
+        <div class="event-title-section">
+          <h1 class="event-title">{{event.title}}</h1>
+          <p class="event-description">{{event.description}}</p>
+        </div>
 
-    <!-- Join Button -->
-    <div ng-if="!alreadyJoined">
-      <button ng-click="joinEvent()">Join Event</button>
-    </div>
-    <div ng-if="alreadyJoined">
-      <p>You have already joined this event.</p>
-    </div>
+        <!-- Neon Grid for Event Details -->
+        <div class="neon-grid">
+          <div class="neon-box">
+            <h2>Date</h2>
+            <p>{{event.date | date:'MMM d, yyyy'}}</p>
+          </div>
+          <div class="neon-box">
+            <h2>Time</h2>
+            <p>{{event.date | date:'h:mm a'}}</p>
+          </div>
+          <div class="neon-box">
+            <h2>Location</h2>
+            <p>{{event.location}}</p>
+          </div>
+          <div class="neon-box">
+            <h2>Type</h2>
+            <p>{{event.type}}</p>
+          </div>
+        </div>
 
-    <!-- Message Box -->
-    <p style="color: green;" ng-if="message">{{message}}</p>
-    <p style="color: red;" ng-if="error">{{error}}</p>
+        <!-- Attendees Section -->
+        <section class="attendees-section">
+          <h2>Attendees</h2>
+          <ul class="attendees-list">
+            <li ng-repeat="attendee in event.attendees">{{attendee}}</li>
+          </ul>
+        </section>
 
-    <br>
-    <a ng-href="invite.html#/invite/{{event._id}}">Invite People</a><br>
-    <a href="dashboard.html">Back to Dashboard</a>
-  </div>
+        <!-- Join Event Section -->
+        <div class="join-event-section">
+          <button ng-if="!alreadyJoined" ng-click="joinEvent()" class="btn-join-event">Join Event</button>
+          <p ng-if="alreadyJoined" class="already-joined-message">You have already joined this event.</p>
+        </div>
 
-  <div ng-if="!event">
-    <p>Loading event details...</p>
-  </div>
+        <!-- Messages -->
+        <div class="message-box">
+          <p style="color: green;" ng-if="message">{{message}}</p>
+          <p style="color: red;" ng-if="error">{{error}}</p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="navigation-links">
+          <a href="dashboard.html" class="btn-back-dashboard">Back to Dashboard</a>
+        </div>
+      </div>
+
+      <!-- Loading Message -->
+      <div ng-if="!event" class="loading-message">
+        <p>Loading event details...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="event-footer">
+    Event Manager &copy; {{currentYear}} | All Rights Reserved
+  </footer>
 </body>
 </html>

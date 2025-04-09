@@ -2,6 +2,7 @@
 <html ng-app="eventApp">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard - Event Manager</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
@@ -9,17 +10,56 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body ng-controller="DashboardController">
-  <h2>Welcome, {{user.name}}</h2>
-  <button ng-click="logout()">Logout</button>
+  <header class="dashboard-header">
+    <div class="logo">Event Manager</div>
+    <div class="user-info">
+      <span>Welcome, {{user.name}}</span>
+      <button class="btn-logout" ng-click="logout()">Logout</button>
+    </div>
+  </header>
 
-  <h3>Your Events</h3>
-  <ul>
-    <li ng-repeat="event in events">
-      {{event.title}} - {{event.date}} 
-      <a ng-href="event-details.html#/event/{{event._id}}">View</a>
-    </li>
-  </ul>
+  <main class="dashboard-main">
+    <!-- Events Section -->
+    <section class="events-section">
+      <h2>Your Events</h2>
+      <div class="add-event-container">
+        <a href="create-event.html" class="btn-add-event">Create New Event</a>
+      </div>
+      <div class="events-grid">
+        <div class="event-card" ng-repeat="event in events">
+          <div class="event-details">
+            <h3>{{event.title}}</h3>
+            <p><strong>Date:</strong> {{event.date | date:'mediumDate'}}</p>
+            <a ng-href="event-details.html#/event/{{event._id}}" class="btn-view-event">View Details</a>
+          </div>
+        </div>
+      </div>
+      <p ng-if="events.length === 0" class="no-events-message">You currently have no events scheduled.</p>
+    </section>
 
-  <a href="create-event.html">Create New Event</a>
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <h2>Dashboard Stats</h2>
+      <div class="stats-grid">
+        <div class="stat-card total-events">
+          <h3>Total Events</h3>
+          <p>{{events.length}}</p>
+        </div>
+        <div class="stat-card upcoming-events">
+          <h3>Upcoming</h3>
+          <p>{{getUpcomingCount()}}</p>
+        </div>
+        <div class="stat-card past-events">
+          <h3>Past Events</h3>
+          <p>{{getPastCount()}}</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    Event Manager &copy; {{currentYear}} | All Rights Reserved
+  </footer>
 </body>
 </html>
