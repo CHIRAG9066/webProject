@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const path = require('path'); // ✅ Required to resolve frontend path
+const path = require('path'); 
 
 const authRoutes = require('./routes/auth');
 const eventRoutes = require('./routes/events');
@@ -10,6 +10,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static('frontend'));
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
+app.use(session({
+  secret: 'Web-Project-eventManagementSystem', // use env variable in production
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // set to true if using HTTPS
+}));
 
 
 mongoose.connect('mongodb://localhost:27017/MyProjectDB', {
