@@ -4,29 +4,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EventMaster - Professional Event Management</title>
+  <title>EventMaster - Your Event Management Platform</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    .hero-section {
+      padding: 150px 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+    .features-section {
+      padding: 100px 0;
+    }
+    .feature-card {
+      padding: 30px;
+      border-radius: 10px;
+      background: rgb(20, 20, 20);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;    
+      color: #6c5ce7;
+    }
+    .events-section {
+      padding: 100px 0;
+      background-color: black;
+    }
+    .event-card {
+      margin-bottom: 30px;
+      border-radius: 10px;
+      color: rgb(255, 255, 255);
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      background: rgb(20, 20, 20);
+    }
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+    .event-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .testimonials-section {
+      padding: 100px 0;
+    }
+    .testimonial-card {
+      padding: 30px;
+      border-radius: 10px;
+      background: rgb(20, 20, 20);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    .testimonial-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+  </style>
 </head>
 
 <body ng-controller="MainController">
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">EventMaster</a>
+      <a class="navbar-brand" href="index.html">EventMaster</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link active" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="about-us.html">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#services">Services</a>
@@ -43,42 +118,132 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
+  <section class="hero-section" id="home">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-10 text-center">
-          <h1 class="text-white mb-4">Welcome to Event Management System</h1>
-          <p class="lead text-white mb-5">Professional event planning and management services for any occasion</p>
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 mb-4">Transform Your Events into Unforgettable Experiences</h1>
+          <p class="lead mb-4">EventMaster helps you plan, manage, and execute events with ease. From corporate meetings to grand celebrations, we've got you covered.</p>
           <a href="register.html" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3" alt="Hero Image" class="img-fluid rounded">
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- About Section -->
-  <section id="about" class="about-section">
+  <!-- Features Section -->
+  <section class="features-section">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <h2 class="section-title">About Us</h2>
-          <p class="lead mb-4">We create exceptional events that leave lasting impressions</p>
-          <p class="mb-4">With over a decade of experience in event management, we specialize in creating memorable
-            experiences for corporate events, weddings, conferences, and private celebrations. Our dedicated team
-            ensures every detail is perfect.</p>
-          <ul class="list-unstyled">
-            <li><i class="bi bi-check-circle-fill"></i> Professional Planning</li>
-            <li><i class="bi bi-check-circle-fill"></i> Creative Solutions</li>
-            <li><i class="bi bi-check-circle-fill"></i> Dedicated Support</li>
-          </ul>
+      <h2 class="text-center mb-5">Why Choose EventMaster?</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="feature-card">
+            <i class="fas fa-calendar-check feature-icon"></i>
+            <h4>Easy Planning</h4>
+            <p>Streamline your event planning process with our intuitive tools and templates.</p>
+          </div>
         </div>
-        <div class="col-lg-6">
-          <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3" alt="Event Planning"
-              class="img-fluid">
+        <div class="col-md-4">
+          <div class="feature-card">
+            <i class="fas fa-users feature-icon"></i>
+            <h4>Guest Management</h4>
+            <p>Effortlessly manage guest lists, RSVPs, and communications in one place.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <i class="fas fa-chart-line feature-icon"></i>
+            <h4>Analytics</h4>
+            <p>Track event performance and gather valuable insights for future planning.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="events-section" >
+    <div class="container">
+      <h2 class="text-center mb-5">Upcoming Events</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3" alt="Corporate Event">
+            <div class="p-4">
+              <h5>Corporate Conference</h5>
+              <p class="text-muted">June 15, 2023</p>
+              <p>Join industry leaders for a day of networking and innovation.</p>
+              <a href="#" class="btn btn-outline-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3" alt="Wedding Event">
+            <div class="p-4">
+              <h5>Wedding Expo</h5>
+              <p class="text-muted">July 20, 2023</p>
+              <p>Discover the latest trends in wedding planning and design.</p>
+              <a href="#" class="btn btn-outline-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3" alt="Music Festival">
+            <div class="p-4">
+              <h5>Summer Music Festival</h5>
+              <p class="text-muted">August 5, 2023</p>
+              <p>Experience three days of amazing music and entertainment.</p>
+              <a href="#" class="btn btn-outline-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="text-center mb-5">What Our Clients Say</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="testimonial-card text-center">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3" alt="Client" class="testimonial-image">
+            <h5>John Doe</h5>
+            <p class="text-muted">CEO, TechCorp</p>
+            <p>"EventMaster transformed our annual conference. The platform made everything so much easier to manage."</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card text-center">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3" alt="Client" class="testimonial-image">
+            <h5>Jane Smith</h5>
+            <p class="text-muted">Event Planner</p>
+            <p>"The guest management features saved me countless hours. Highly recommended!"</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card text-center">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3" alt="Client" class="testimonial-image">
+            <h5>Mike Johnson</h5>
+            <p class="text-muted">Marketing Director</p>
+            <p>"The analytics tools helped us understand our event's impact better than ever before."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2 class="mb-4">Ready to Transform Your Events?</h2>
+      <p class="lead mb-4">Join thousands of event professionals who trust EventMaster for their event management needs.</p>
+      <a href="register.html" class="btn btn-primary btn-lg">Start Your Free Trial</a>
     </div>
   </section>
 
@@ -116,8 +281,7 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="/main.js"></script>
   <script type="module" src="/app.js"></script>
 </body>

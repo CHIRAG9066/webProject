@@ -2,42 +2,43 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Add jQuery to the page
-    const jqueryScript = document.createElement('script');
-    jqueryScript.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-    jqueryScript.onload = initializeJQuery;
-    document.head.appendChild(jqueryScript);
-    
-    // Smooth scroll for anchor links (original functionality)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  
-    // Navbar scroll behavior (original functionality)
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.style.backgroundColor = 'white';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-      } else {
-        navbar.style.backgroundColor = 'white';
-        navbar.style.boxShadow = 'none';
+  // Add jQuery to the page
+  const jqueryScript = document.createElement('script');
+  jqueryScript.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+  jqueryScript.onload = initializeJQuery;
+  document.head.appendChild(jqueryScript);
+
+  // Smooth scroll for anchor links (original functionality)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
     });
+  });
+
+  // Navbar scroll behavior (original functionality)
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.style.backgroundColor = 'white';
+      navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    } else {
+      navbar.style.backgroundColor = 'white';
+      navbar.style.boxShadow = 'none';
+    }
+  });
 });
+
 
 // jQuery functionality for footer
 function initializeJQuery() {
-  $(document).ready(function() {
+  $(document).ready(function () {
     // Create footer HTML
     const footerHTML = `
       <footer id="main-footer" class="bg-dark text-white py-5 mt-5">
@@ -74,10 +75,10 @@ function initializeJQuery() {
         </div>
       </footer>
     `;
-    
+
     // Add footer after about section
     $('#about').after(footerHTML);
-    
+
     // Add subtle fade-in animation
     $('#main-footer').hide().fadeIn(1000);
   });

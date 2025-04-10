@@ -1,0 +1,206 @@
+/* Event Details Page Styling */
+:root {
+  --primary: #ffffff;
+  --secondary: #ffffff;
+  --accent: #1fefec;
+  --dark: #1a1a1a;
+  --darker: #121212;
+  --text: #ffffff;
+  --text-secondary: #b3b3b3;
+  --bg: #0d0d0d;
+  --white: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Bahnschrift', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Header */
+.event-header {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Main Content */
+.event-main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.event-title {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.event-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: var(--text);
+}
+
+/* Grid Layout */
+.neon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.neon-box {
+  background: var(--dark);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  border-color: var(--primary);
+}
+
+.neon-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.neon-box h2 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.neon-box p {
+  color: var(--text-secondary);
+}
+
+/* Attendees */
+.attendees-section {
+  background: var(--dark);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin: 2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.attendees-section h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.attendees-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.attendees-list li {
+  background: var(--darker);
+  padding: 0.8rem;
+  border-radius: 4px;
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.attendees-list li:hover {
+  background: var(--primary);
+  color: var(--darker);
+  transform: scale(1.05);
+  border-color: var(--primary);
+}
+
+/* Buttons */
+.btn-join-event {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--darker);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: block;
+  margin: 2rem auto;
+}
+
+.btn-join-event:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: var(--white);
+  background:#1fefeb10;
+}
+
+/* Footer */
+.event-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--dark);
+  margin-top: 2rem;
+  box-shadow: var(--shadow);
+  color: var(--text-secondary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .event-header { flex-direction: column; text-align: center; }
+  nav { margin-top: 1rem; }
+  nav a { margin: 0.5rem; }
+  .event-title { font-size: 2rem; }
+  .neon-grid { grid-template-columns: 1fr; }
+} 

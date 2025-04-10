@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eventApp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - EventMaster</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    .about-section {
+      padding: 100px 0;
+      background-color: #0c0c0c;
+    }
+    .mission-vision {
+      padding: 80px 0;
+      background-color: #131313;
+    }
+    .team-section {
+      padding: 80px 0;
+      background-color: #0c0c0c;
+    }
+    .values-section {
+      padding: 80px 0;
+      background-color: #0c0c0c;
+    }
+    .section-title {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    .team-member {
+      margin-bottom: 30px;
+    }
+    .team-member img {
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .value-card {
+      padding: 30px;
+      border-radius: 10px;
+      background: rgb(0, 0, 0);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #6c5ce7;
+    }
+  </style>
+</head>
+<body ng-controller="MainController">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">EventMaster</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="login.html" class="btn btn-outline-primary ms-2">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="register.html" class="btn btn-primary ms-2">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title">Our Story</h2>
+          <p class="lead mb-4">Transforming Events into Unforgettable Experiences</p>
+          <p class="mb-4">Founded in 2010, EventMaster has grown from a small event planning company to a leading event management platform. Our journey began with a simple mission: to make event planning accessible, efficient, and enjoyable for everyone.</p>
+          <p class="mb-4">Today, we serve thousands of clients worldwide, helping them create memorable events that leave lasting impressions. Our platform combines cutting-edge technology with expert event management knowledge to deliver exceptional results.</p>
+        </div>
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3" alt="Our Story" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="mission-vision">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <h3 class="mb-4">Our Mission</h3>
+          <p>To revolutionize event management by providing innovative solutions that simplify planning, enhance engagement, and create unforgettable experiences for our clients and their guests.</p>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <h3 class="mb-4">Our Vision</h3>
+          <p>To become the global leader in event management technology, setting new standards for excellence and innovation in the industry while making professional event planning accessible to all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <h2 class="section-title">Our Core Values</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="value-card">
+            <i class="fas fa-lightbulb value-icon"></i>
+            <h4>Innovation</h4>
+            <p>We constantly push boundaries to bring you the latest in event technology and creative solutions.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="value-card">
+            <i class="fas fa-handshake value-icon"></i>
+            <h4>Excellence</h4>
+            <p>We strive for perfection in every detail, ensuring your event exceeds expectations.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="value-card">
+            <i class="fas fa-users value-icon"></i>
+            <h4>Community</h4>
+            <p>We believe in building strong relationships and creating meaningful connections.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title">Meet Our Leadership</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="team-member text-center">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3" alt="CEO" class="img-fluid rounded-circle" style="width: 200px; height: 200px; object-fit: cover;">
+            <h4>John Smith</h4>
+            <p class="text-muted">Founder & CEO</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="team-member text-center">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3" alt="COO" class="img-fluid rounded-circle" style="width: 200px; height: 200px; object-fit: cover;">
+            <h4>Sarah Johnson</h4>
+            <p class="text-muted">Chief Operations Officer</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="team-member text-center">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3" alt="CTO" class="img-fluid rounded-circle" style="width: 200px; height: 200px; object-fit: cover;">
+            <h4>Michael Chen</h4>
+            <p class="text-muted">Chief Technology Officer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="main-footer" class="bg-black text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>EventMaster</h5>
+          <p>Crafting Moments. Creating Memories.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact Info</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt mr-2"></i>No. 3, RMZ Infinity - Tower E, Old Madras Road, 3rd, 4th, and 5th Floors, Bangalore, 560016, India.</li>
+            <li><i class="fas fa-phone mr-2"></i> +91946390313</li>
+            <li><i class="fas fa-envelope mr-2"></i> eventmaster@gmail.com</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+            <a href="https://in.linkedin.com/" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-3">
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="mb-0">&copy; 2023 EventMaster. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="/main.js"></script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

@@ -1,22 +1,22 @@
 /* Root Variables */
 :root {
-  --primary-color: #00f0ff;
-  --secondary-color: #ff00ff;
+  --primary-color: #ffffff;
+  --secondary-color: #3f0000;
   --text-color: #e0e0ff;
   --background-color: #0a0a0a;
   --section-bg: #131313;
   --card-bg: #1a1a1a;
   --border-color: #333;
-  --glow: 0 0 10px #00f0ff, 0 0 20px #ff00ff;
+  --glow: 0 0 10px #ff0000;
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: "Bahnschrift", sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
   overflow-x: hidden;
-  margin: 0;
+  margin: 0rem;
   padding: 0;
   text-align: center;
   scroll-behavior: smooth;
@@ -48,15 +48,16 @@ body {
   color: var(--text-color) !important;
   font-weight: 600;
   padding: 0.6rem 1.2rem !important;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   border-radius: 24px;
   text-shadow: var(--glow);
 }
 
 .nav-link:hover {
-  color: var(--secondary-color) !important;
+  color: var(--text-color) !important;
   background-color: rgba(255, 255, 255, 0.05);
   box-shadow: var(--glow);
+  transform: scale(1.05);
 }
 
 /* Hero Section */
@@ -147,13 +148,13 @@ button:hover, .btn:hover {
   background-color: var(--secondary-color);
   color: #fff;
   transform: scale(1.05);
+  box-shadow:none;
 }
 
 label {
   text-align: left;
-  font-weight: 600;
-  color: var(--secondary-color);
-  text-shadow: var(--glow);
+  font-weight: 900;
+  color: var(--text-color);
 }
 
 /* Sections */
