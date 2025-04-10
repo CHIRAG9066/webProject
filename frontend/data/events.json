@@ -1,0 +1,184 @@
+{
+    "events": [
+        {
+            "id": 1,
+            "title": "Luxury Wedding",
+            "type": "wedding",
+            "description": "A wedding package including venue, catering, and decoration",
+            "price": 5000,
+            "date": "2024-06-15",
+            "location": "Grand Ballroom, City Center",
+            "image": "images/wedding.webp",
+            "details": {
+                "guests": "Up to 200",
+                "duration": "6 hours",
+                "includes": ["Venue", "Catering", "Decoration", "Photography", "Music"]
+            }
+        },
+        {
+            "id": 2,
+            "title": "Corporate Conference",
+            "type": "corporate",
+            "description": "Professional conference setup with all necessary equipment",
+            "price": 3000,
+            "date": "2024-07-20",
+            "location": "Business Center, Downtown",
+            "image": "images/corporate.webp",
+            "details": {
+                "guests": "Up to 100",
+                "duration": "8 hours",
+                "includes": ["Projector", "Sound System", "WiFi", "Catering", "Notepads"]
+            }
+        },
+        {
+            "id": 3,
+            "title": "Birthday Celebration",
+            "type": "birthday",
+            "description": "Fun-filled birthday party with entertainment and catering",
+            "price": 1500,
+            "date": "2024-08-10",
+            "location": "Party Hall, Suburb",
+            "image": "images/birthday.webp",
+            "details": {
+                "guests": "Up to 50",
+                "duration": "4 hours",
+                "includes": ["Venue", "Catering", "Entertainment", "Decorations", "Cake"]
+            }
+        },
+        {
+            "id": 4,
+            "title": "Intimate Wedding",
+            "type": "wedding",
+            "description": "Small and elegant wedding package for intimate gatherings",
+            "price": 2500,
+            "date": "2024-09-05",
+            "location": "Garden Venue, Riverside",
+            "image": "images/wedding2.webp",
+            "details": {
+                "guests": "Up to 50",
+                "duration": "4 hours",
+                "includes": ["Venue", "Catering", "Decoration", "Photography"]
+            }
+        },
+        {
+            "id": 5,
+            "title": "Product Launch",
+            "type": "corporate",
+            "description": "Professional product launch event with media coverage",
+            "price": 4000,
+            "date": "2024-10-15",
+            "location": "Tech Hub, Innovation District",
+            "image": "images/corporate2.webp",
+            "details": {
+                "guests": "Up to 150",
+                "duration": "5 hours",
+                "includes": ["Stage", "Lighting", "Sound System", "Catering", "Media Coverage"]
+            }
+        },
+        {
+            "id": 6,
+            "title": "Anniversary Celebration",
+            "type": "birthday",
+            "description": "Elegant anniversary celebration with fine dining and entertainment",
+            "price": 2000,
+            "date": "2024-11-20",
+            "location": "Luxury Restaurant, Downtown",
+            "image": "images/anniversary.webp",
+            "details": {
+                "guests": "Up to 30",
+                "duration": "5 hours",
+                "includes": ["Private Dining", "Live Music", "Photography", "Custom Cake", "Floral Arrangements"]
+            }
+        },
+        {
+            "id": 7,
+            "title": "Team Building Workshop",
+            "type": "corporate",
+            "description": "Interactive team building activities and workshops",
+            "price": 1800,
+            "date": "2024-12-05",
+            "location": "Conference Center, Business Park",
+            "image": "images/workshop.webp",
+            "details": {
+                "guests": "Up to 40",
+                "duration": "6 hours",
+                "includes": ["Workshop Materials", "Facilitator", "Catering", "Team Activities", "Certificates"]
+            }
+        },
+        {
+            "id": 8,
+            "title": "Graduation Party",
+            "type": "birthday",
+            "description": "Celebrate academic achievements with style",
+            "price": 2200,
+            "date": "2025-01-15",
+            "location": "Event Hall, University District",
+            "image": "images/graduation.webp",
+            "details": {
+                "guests": "Up to 100",
+                "duration": "5 hours",
+                "includes": ["Venue", "Catering", "DJ", "Photo Booth", "Graduation Decor"]
+            }
+        },
+        {
+            "id": 9,
+            "title": "Networking Mixer",
+            "type": "corporate",
+            "description": "Professional networking event with cocktails and appetizers",
+            "price": 1200,
+            "date": "2025-02-10",
+            "location": "Rooftop Lounge, Financial District",
+            "image": "images/networking.webp",
+            "details": {
+                "guests": "Up to 80",
+                "duration": "3 hours",
+                "includes": ["Venue", "Cocktails", "Appetizers", "Networking Materials", "Name Tags"]
+            }
+        },
+        {
+            "id": 10,
+            "title": "Destination Wedding",
+            "type": "wedding",
+            "description": "Luxury destination wedding package at a beach resort",
+            "price": 8000,
+            "date": "2025-03-25",
+            "location": "Beach Resort, Coastal Area",
+            "image": "images/destination.webp",
+            "details": {
+                "guests": "Up to 100",
+                "duration": "3 days",
+                "includes": ["Resort Accommodation", "Beach Ceremony", "Reception", "Photography", "Transportation"]
+            }
+        },
+        {
+            "id": 11,
+            "title": "Charity Gala",
+            "type": "corporate",
+            "description": "Elegant charity fundraising event with auction",
+            "price": 3500,
+            "date": "2025-04-15",
+            "location": "Grand Hotel, City Center",
+            "image": "images/gala.webp",
+            "details": {
+                "guests": "Up to 200",
+                "duration": "4 hours",
+                "includes": ["Venue", "Fine Dining", "Live Auction", "Entertainment", "Photography"]
+            }
+        },
+        {
+            "id": 12,
+            "title": "Kids Birthday Party",
+            "type": "birthday",
+            "description": "Fun-filled children's birthday party with games and activities",
+            "price": 1000,
+            "date": "2025-05-20",
+            "location": "Play Center, Family District",
+            "image": "images/kids.webp",
+            "details": {
+                "guests": "Up to 30",
+                "duration": "3 hours",
+                "includes": ["Venue", "Games", "Entertainment", "Catering", "Party Favors"]
+            }
+        }
+    ]
+} 

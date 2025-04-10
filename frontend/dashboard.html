@@ -12,8 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body ng-controller="DashboardController">
+  <img src="/css/dashboard.jpg" alt="Dashboard Background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
   <header class="dashboard-header">
-    <div class="logo">EventMaster</div>
+    <a class="logo" href="index.html">EventMaster</a>
     <div class="user-info">
       <span>Welcome, {{user.name}}</span>
       <button class="btn-logout" ng-click="logout()">Logout</button>

@@ -22,6 +22,7 @@ body {
   scroll-behavior: smooth;
 }
 
+
 /* Navbar */
 .navbar {
   background-color: rgba(19, 19, 19, 0.6);
@@ -100,7 +101,7 @@ body {
 form {
   background: rgba(26, 26, 26, 0.6);
   box-shadow: var(--glow);
-  padding: 2rem;
+  padding: 4rem;
   border-radius: 30px;
   max-width: 500px;
   margin: 2rem auto;

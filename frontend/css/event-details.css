@@ -171,6 +171,8 @@ nav a:hover {
   transition: var(--transition);
   display: block;
   margin: 2rem auto;
+  text-decoration: none;
+  width: 10rem;
 }
 
 .btn-join-event:hover {

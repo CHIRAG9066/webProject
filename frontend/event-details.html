@@ -12,11 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body ng-controller="EventDetailsController">
+  <img src="/css/event-details.jpg" alt="event Background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
   <header class="event-header">
     <div class="logo">EventMaster</div>
     <nav>
       <a href="dashboard.html">Dashboard</a>
-      <a ng-href="invite.html#/invite/{{event._id}}">Invite People</a>
+      <a href="login.html">Logout</a>
     </nav>
   </header>
 
@@ -59,8 +60,7 @@
 
         <!-- Join Event Section -->
         <div class="join-event-section">
-          <button ng-if="!alreadyJoined" ng-click="joinEvent()" class="btn-join-event">Join Event</button>
-          <p ng-if="alreadyJoined" class="already-joined-message">You have already joined this event.</p>
+          <a class="btn-join-event" ng-href="invite.html#/invite/{{event._id}}">Invite People</a>
         </div>
 
         <!-- Messages -->
@@ -82,8 +82,5 @@
     </section>
   </main>
 
-  <footer class="event-footer">
-    Event Manager &copy; {{currentYear}} | All Rights Reserved
-  </footer>
 </body>
 </html>
