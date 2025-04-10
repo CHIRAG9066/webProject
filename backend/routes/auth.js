@@ -11,19 +11,36 @@ router.post('/register', async (req, res) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&])[A-Za-z\d@$!%*?#&]{8,}$/;
   
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ success: false, message: 'Invalid email format' });
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Invalid email format',
+        toast: {
+          message: 'Please enter a valid email address',
+          type: 'danger'
+        }
+      });
     }
   
     if (!passwordRegex.test(password)) {
       return res.status(400).json({
         success: false,
-        message: 'Password must be at least 8 characters and include uppercase, lowercase, number, and special character'
+        message: 'Password must be at least 8 characters and include uppercase, lowercase, number, and special character',
+        toast: {
+          message: 'Password must be at least 8 characters and include uppercase, lowercase, number, and special character',
+          type: 'danger'
+        }
       });
     }
   
     const user = new User({ name, email, password });
     await user.save();
-    res.json({ success: true });
+    res.json({ 
+      success: true,
+      toast: {
+        message: 'Registration successful!',
+        type: 'success'
+      }
+    });
   });
   
 
@@ -42,17 +59,44 @@ router.post('/login', async (req, res) => {
         console.log(' Session object:', req.session);
         console.log(' Cookies received:', req.cookies);
 
-        res.json({ success: true, user: req.session.user });
+        res.json({ 
+          success: true, 
+          user: req.session.user,
+          toast: {
+            message: 'Login successful!',
+            type: 'success'
+          }
+        });
     } else {
-        res.json({ success: false, message: 'Invalid credentials' });
+        res.json({ 
+          success: false, 
+          message: 'Invalid credentials',
+          toast: {
+            message: 'Invalid email or password',
+            type: 'danger'
+          }
+        });
     }
 });
 
 router.post('/logout', (req, res) => {
     req.session.destroy(err => {
-        if (err) return res.status(500).json({ message: 'Logout failed' });
+        if (err) return res.status(500).json({ 
+          message: 'Logout failed',
+          toast: {
+            message: 'Logout failed. Please try again.',
+            type: 'danger'
+          }
+        });
         res.clearCookie('userSession');
-        res.json({ success: true, message: 'Logged out successfully' });
+        res.json({ 
+          success: true, 
+          message: 'Logged out successfully',
+          toast: {
+            message: 'Logged out successfully',
+            type: 'success'
+          }
+        });
     });
 });
 
