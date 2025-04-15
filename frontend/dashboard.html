@@ -23,7 +23,6 @@
   </header>
 
   <main class="dashboard-main">
-    <!-- Events Section -->
     <section class="events-section">
       <h2>Your Events</h2>
       <div class="add-event-container">
@@ -41,7 +40,6 @@
       <p ng-if="events.length === 0" class="no-events-message">You currently have no events scheduled.</p>
     </section>
 
-    <!-- Stats Section -->
     <section class="stats-section">
       <h2>Dashboard Stats</h2>
       <div class="stats-grid">
@@ -49,19 +47,10 @@
           <h3>Total Events</h3>
           <p>{{events.length}}</p>
         </div>
-        <div class="stat-card upcoming-events">
-          <h3>Upcoming</h3>
-          <p>{{getUpcomingCount()}}</p>
-        </div>
-        <div class="stat-card past-events">
-          <h3>Past Events</h3>
-          <p>{{getPastCount()}}</p>
-        </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="dashboard-footer">
     Event Manager &copy; {{currentYear}} | All Rights Reserved
   </footer>
