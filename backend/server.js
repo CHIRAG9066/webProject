@@ -22,7 +22,7 @@ app.use(session({
 }));
 
 
-mongoose.connect('mongodb://localhost:27017/MyProjectDB', {
+mongoose.connect('mongodb+srv://vishrutram25_db_user:7VA32465Bwx2tsCV@cluster0.zqjmjld.mongodb.net/?appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
