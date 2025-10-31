@@ -27,11 +27,12 @@ mongoose.connect('mongodb+srv://vishrutram25_db_user:7VA32465Bwx2tsCV@cluster0.z
   useUnifiedTopology: true,
 });
 
-app.use(express.static(path.join(__dirname, '../frontend')));
+// app.use(express.static(path.join(__dirname, '../frontend')));
 
 // ✅ Default route to serve login.html (or index.html)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/login.html'));
+  res.send("backend is live");
+  // res.sendFile(path.join(__dirname, '../frontend/login.html'));
 });
 
 // ✅ API routes

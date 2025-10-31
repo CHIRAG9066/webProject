@@ -22,7 +22,7 @@ app.controller('AuthController', function($scope, $http) {
   $scope.error = "";
 
   $scope.register = function () {
-    $http.post('http://localhost:3000/api/auth/register', $scope.user)
+    $http.post('https://eventmaster-backend.up.railway.app/api/auth/register', $scope.user)
       .then(res => {
         if (res.data.success) {
           window.location.href = 'login.html';
@@ -33,7 +33,7 @@ app.controller('AuthController', function($scope, $http) {
   };
 
   $scope.login = function () {
-    $http.post('http://localhost:3000/api/auth/login', $scope.user)
+    $http.post('https://eventmaster-backend.up.railway.app/api/auth/login', $scope.user)
       .then(res => {
         if (res.data.success) {
           localStorage.setItem('user', JSON.stringify(res.data.user));
@@ -53,7 +53,7 @@ app.controller('DashboardController', function($scope, $http) {
     return;
   }
 
-  $http.get(`http://localhost:3000/api/events/user/${$scope.user._id}`)
+  $http.get(`https://eventmaster-backend.up.railway.app/api/events/user/${$scope.user._id}`)
     .then(res => {
       $scope.events = res.data;
     });
@@ -90,7 +90,7 @@ app.controller('EventController', function($scope, $http) {
       delete $scope.event.timeInput;
     }
     
-    $http.post('http://localhost:3000/api/events/create', $scope.event)
+    $http.post('https://eventmaster-backend.up.railway.app/api/events/create', $scope.event)
       .then(res => {
         if (res.data.success) {
           $scope.message = "Event created!";
@@ -116,7 +116,7 @@ app.controller('AllEventsController', function($scope, $http) {
     return;
   }
 
-  $http.get('http://localhost:3000/api/events/all')
+  $http.get('https://eventmaster-backend.up.railway.app/api/events/all')
     .then(res => {
       $scope.allEvents = res.data;
     });
@@ -158,7 +158,7 @@ app.controller('EventDetailsController', function($scope, $http) {
     return;
   }
 
-  $http.get(`http://localhost:3000/api/events/${eventId}`)
+  $http.get(`https://eventmaster-backend.up.railway.app/api/events/${eventId}`)
     .then(res => {
       console.log("Event data received:", res.data);
       $scope.event = res.data;
@@ -198,13 +198,13 @@ app.controller('InviteController', function($scope, $http) {
     return;
   }
 
-  $http.get(`http://localhost:3000/api/events/${eventId}`)
+  $http.get(`https://eventmaster-backend.up.railway.app/api/events/${eventId}`)
     .then(res => {
       $scope.event = res.data;
     });
 
   $scope.sendInvite = function () {
-    $http.post(`http://localhost:3000/api/events/invite/${eventId}`, {
+    $http.post(`https://eventmaster-backend.up.railway.app/api/events/invite/${eventId}`, {
       email: $scope.invite.email
     }).then(res => {
       $scope.message = res.data.message || "Invite sent!";
@@ -220,7 +220,7 @@ app.controller('CheckinController', function($scope, $http) {
   $scope.message = "";
 
   $scope.doCheckin = function () {
-    $http.post('http://localhost:3000/api/events/checkin', $scope.checkin)
+    $http.post('https://eventmaster-backend.up.railway.app/api/events/checkin', $scope.checkin)
       .then(res => {
         $scope.message = res.data.message || "Check-in complete!";
       })
